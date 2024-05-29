@@ -1,0 +1,14 @@
+#contenedorTitulo{
+    text-align: center;
+    color: purple;
+}
+
+.parrafoSecundario{
+    font-size: 22px;
+    color: navy
+}
+
+.notaImportante{
+    color: red;
+}
+
