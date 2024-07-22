@@ -23,7 +23,7 @@ public class ProductoController {
 
     @Autowired
     private ProductoService productoService;
-    
+
     @Autowired
     private CategoriaService categoriaService;
 
@@ -35,6 +35,7 @@ public class ProductoController {
         List<Producto> productos = productoService.getProductos(false);
         model.addAttribute("productos", productos);
         model.addAttribute("totalProductos", productos.size());
+
         List<Categoria> categorias = categoriaService.getCategorias(true);
         model.addAttribute("categorias", categorias);
         return "/producto/listado";
@@ -70,6 +71,9 @@ public class ProductoController {
     public String productoModificar(Producto producto, Model model) {
         producto = productoService.getProducto(producto);
         model.addAttribute("producto", producto);
+
+        List<Categoria> categorias = categoriaService.getCategorias(true);
+        model.addAttribute("categorias", categorias);
         return "/producto/modifica";
     }
 }
