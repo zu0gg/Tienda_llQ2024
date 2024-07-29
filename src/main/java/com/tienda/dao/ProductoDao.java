@@ -21,4 +21,10 @@ public interface ProductoDao extends JpaRepository<Producto, Long> {
     @Query(nativeQuery = true,
             value = "SELECT * FROM producto where producto.precio BETWEEN :precioInf AND :precioSup ORDER BY producto.descripcion ASC")
     public List<Producto> metodoNativo(@Param("precioInf") double precioInf, @Param("precioSup") double precioSup);
+
+    //Ejemplo de Tarea, buscar producto si esta o no activo y por su precio mayor a, JPQL
+
+    @Query("SELECT p FROM Producto p WHERE p.activo = :activo AND p.precio > :precio ORDER BY p.descripcion ASC")
+    List<Producto> findByActivoAndPrecioGreaterThan(@Param("activo") boolean activo, @Param("precio") double precio);
+
 }
